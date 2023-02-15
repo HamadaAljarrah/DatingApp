@@ -30,8 +30,6 @@ export class MemeberDetailComponent implements OnInit {
 
             }
         ];
-        console.log(this.member);
-
     }
 
     loadMember() {
@@ -51,7 +49,7 @@ export class MemeberDetailComponent implements OnInit {
         const imageUrls = [];
         for (const photo of this.member.photos) {
             imageUrls.push({
-                samll: photo.url,
+                small: photo.url,
                 medium: photo.url,
                 big: photo.url,
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { User } from './_models/user';
 import { AccountService } from './_services/account.service';
 
@@ -13,7 +14,7 @@ import { AccountService } from './_services/account.service';
 export class AppComponent implements OnInit {
     title = 'client';
     users: any;
-    constructor(private accountServices: AccountService) {
+    constructor(private accountServices: AccountService, private spinner: NgxSpinnerService) {
 
     }
 
@@ -23,9 +24,9 @@ export class AppComponent implements OnInit {
 
 
 
-    setCurrentUser(){
+    setCurrentUser() {
         const userString = localStorage.getItem("user");
-        if(!userString) return;
+        if (!userString) return;
         const user: User = JSON.parse(userString);
         this.accountServices.setCurrentUser(user);
     }
